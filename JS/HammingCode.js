@@ -1,0 +1,2 @@
+const encode = str => str.split("").map(str => str.charCodeAt(0).toString(2).padStart(8,"0").replace(/0/g,"000").replace(/1/g,"111")).join("");
+const decode = str => str.match(/.{1,3}/g).map(s=>(s[0]==="1"&&s[1]==="1")||(s[0]==="1"&&s[2]==="1")||(s[2]==="1"&&s[1]==="1")?"1":"0").join("").match(/.{1,8}/g).map(s=>String.fromCharCode(parseInt(s,2))).join("")*
